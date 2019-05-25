@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selection Sort</title>
+</head>
+<body>
+<script>
+    let arr = [64, 25, 12, 22, 11];
+
+    function selectionSort(arr) {
+        let n = arr.length;
+        // One by one move boundary of unsorted subarray
+        for (let i = 0; i < n - 1; i++) {
+            // Find the minimum element in unsorted array
+            let min_idx = i;
+            for (let j = i + 1; j < n; j++) {
+                if (arr[j] < arr[min_idx]) {
+                    min_idx = j;
+                }
+            }
+
+            // Swap the found minimum element with the first element
+            let temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    function printArray(arr) {
+        let n = arr.length;
+        for (let i = 0; i < n; i++) {
+            console.log(arr[i]);
+        }
+    }
+
+    selectionSort(arr);
+    printArray(arr);
+</script>
+</body>
+</html>

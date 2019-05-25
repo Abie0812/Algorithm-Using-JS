@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interpolation Search</title>
+</head>
+<body>
+<script>
+    function interpolationSearch(x) {
+        // Find indexes of two corners
+        let lo = 0;
+        console.log(lo);
+        let hi = (arr.length - 1);
+        console.log(hi);
+        // Since array is sorted, an element present
+        // in array must be in range defined by corner
+        while (lo <= hi && x >= arr[lo] && x <= arr[hi]) {
+            if (lo == hi) {
+                if (arr[lo] == x) {
+                    console.log("lo=" + lo);
+                    return lo;
+                }
+                return -1;
+            }
+
+            // Probing the position with keeping
+            // uniform distribution in mind.
+            let pos = lo + Math.floor((((hi - lo) / (arr[hi] - arr[lo]))
+                * (x - arr[lo])));
+            console.log("pos = " + pos);
+
+             // Condiition of terget found
+            if (arr[pos] == x)
+                return pos;
+
+            // If x is larger, x is in upper part
+            if (arr[pos] < x)
+                lo = pos + 1;
+            else // if x is smaler, x is in the lower part
+                hi = pos - 1;
+        }
+        return -1;
+    }
+
+    let arr = [10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24,
+        33, 35, 42, 47];
+    let x = 19; // Element to be searched
+    let index = interpolationSearch(x);
+
+    // If element was found
+    if (index !== -1)
+        console.log("Element found at index " + index);
+    else
+        console.log("Element not found");
+
+</script>
+</body>
+</html>
