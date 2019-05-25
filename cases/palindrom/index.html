@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindrom</title>
+</head>
+<body>
+<script>
+// function reverseString(string) {
+//     let splitString = string.split("");
+//     let reverseArray = splitString.reverse();
+//     let joinArray = reverseArray.join("");
+//     return joinArray;
+// }
+//
+// // depan bisa, belakang boleh
+// function palindrome(string) {
+//     if (reverseString(string) == string) {
+//         return 1;
+//     } else {
+//         return 0;
+//     }
+// }
+//
+// // ada, ini, katak, malam, bab
+// let string = "katak";
+// if (palindrome(string)) {
+//     console.log("Palindrome");
+// } else {
+//     console.log("Not a Palindrome");
+// }
+
+
+// Palindrom using Recursion
+function isPalRec(arr_str, start, end) {
+    // if there is only one character
+    if (start == end) {
+        return true;
+    }
+
+    // if first character and last character do not match
+    if (arr_str[start] != arr_str[end]) {
+        return false;
+    }
+
+    // if there are more than two characters,
+    // check if middle substring is also palindrom or not.
+    if (start < end + 1) {
+        return isPalRec(arr_str, start + 1, end - 1);
+    }
+
+    return true;
+}
+
+function isPalindrome(arr_str) {
+    let n = arr_str.length;
+
+    // An empty string  is considered as palindrome
+    if (n == 0) {
+        return true;
+    }
+
+    return isPalRec(arr_str, 0, n - 1);
+}
+
+let str = "malam";
+let arr_str = str.split("");
+
+if (isPalindrome(arr_str)) {
+    console.log(str + " is palindrome");
+} else {
+    console.log(str + " is not palindrome");
+}
+</script>
+</body>
+</html>
