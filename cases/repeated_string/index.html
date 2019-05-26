@@ -6,8 +6,42 @@
 </head>
 <body>
 <script>
+/**
+ * Approach #1: Repeat a String with a While Loop
+ * */
+// function repeatStringNumTimes(string, times) {
+//     let repeatedString = "";
+//     while (times > 0) {
+//         repeatedString += string;
+//         times--;
+//     }
+//     return repeatedString;
+// }
+// console.log(repeatStringNumTimes("abc", 3));
 
+/**
+ * Approach #2: Repeat a String using a Conditional and Recursion
+ * */
+// function repeatStringNumTimes(string, times) {
+//     if (times < 0)
+//         return "";
+//     if (times === 1)
+//         return string;
+//     else
+//         return string + repeatStringNumTimes(string, times - 1);
+// }
+// console.log(repeatStringNumTimes("hello", 3));
 
+/**
+ * Approach #3: Repeat a String using ES6 repeat() method
+ * */
+function repeatStringNum(string, times) {
+    if (times > 0)
+        return string.repeat(times);
+    else
+        return "";
+}
+console.log(repeatStringNum("aku", 8))
 </script>
 <!--Sumber: https://medium.freecodecamp.org/three-ways-to-repeat-a-string-in-javascript-2a9053b93a2d-->
 </body>
