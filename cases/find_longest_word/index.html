@@ -6,7 +6,40 @@
 </head>
 <body>
 <script>
+/**
+ * 1. Find the Longest Word With a FOR Loop
+ * */
+function findLongestWord(str) {
+    let strSplit = str.split(' ');
+    let longestWord = 0;
+    for (let i = 0; i < strSplit.length; i++) {
+        if (strSplit[i].length > longestWord) {
+            longestWord = strSplit[i].length;
+        }
+    }
+    return longestWord;
+}
+console.log(findLongestWord("Hello!!! Belajar Algoritma itu Seru loh!!!"));
 
+/**
+ * 2. Find the Longest Word With the sort() Method
+ * */
+// function findLongestWord(str) {
+//     var longestWord = str.split(' ').sort(function(a, b) { return b.length - a.length; });
+//     return longestWord[0].length;
+// }
+// console.log(findLongestWord("Hello!!! Belajar Algoritma itu Seru loh!!!"));
+
+/**
+ * 3. Find the Longest Word With the reduce() Method
+ * */
+// function findLongestWord(str) {
+//     var longestWord = str.split(' ').reduce(function(longest, currentWord) {
+//         return currentWord.length > longest.length ? currentWord : longest;
+//     }, "");
+//     return longestWord.length;
+// }
+// console.log(findLongestWord("Hello!!! Belajar Algoritma itu Seru loh!!!"));
 </script>
 <!--  Sumber: https://medium.freecodecamp.org/three-ways-to-find-the-longest-word-in-a-string-in-javascript-a2fb04c9757c-->
 </body>
