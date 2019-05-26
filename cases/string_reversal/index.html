@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String Reversal</title>
+</head>
+<body>
+<script>
+/**
+ * 1. Reverse a String With Built-In Functions
+ * */
+// function reverseString(str) {
+//     // let splitString = str.split("");
+//     // let reverseArray = splitString.reverse();
+//     // let joinString  = reverseArray.join("");
+//     // console.log(joinString);
+//
+//     /**
+//      * OR Using chaining method
+//      * */
+//     let result = str.split("").reverse().join("");
+//     console.log(result);
+// }
+// reverseString("Hello");
+
+/**
+ * 2. Reverse a String With a Decrementing For Loop
+ * */
+// function reverseString(str) {
+//     let newString = "";
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         newString += str[i];
+//         console.log(newString);
+//     }
+//     console.log(newString);
+// }
+// reverseString("Hello");
+
+/**
+ * 3. Reverse a String With Recursion
+ * */
+function reverseString(str) {
+    if (str === "")
+        return "";
+    else
+        return reverseString(str.substr(1)) + str.charAt(0);
+}
+console.log(reverseString("Hello"));
+</script>
+</body>
+</html>

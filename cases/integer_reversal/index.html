@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Reversal</title>
+</head>
+<body>
+<script>
+/**
+ * 1. Reverse a Number With Built-In Functions
+ * */
+// function reversedNum(num) {
+//     let result = parseFloat(num.toString().split("").reverse().join("")) * Math.sign(num);
+//     console.log(result);
+// }
+// reversedNum(-12345000);
+
+/**
+ * 2. Reverse a Number With a Decrementing For Loop
+ * */
+// function reversedNum(num) {
+//     let stringNumber = num.toString();
+//     let newNumber = "";
+//     for (let i = stringNumber.length - 1; i >= 0; i--) {
+//         newNumber += stringNumber[i];
+//     }
+//     let result = parseFloat(newNumber) * Math.sign(num);
+//     console.log(result);
+// }
+// reversedNum(-12413340);
+
+/**
+ * 3. Reverse a Number With Recursion
+ * */
+function reversedNum(stringNumber) {
+    if (stringNumber === "")
+        return "";
+    else {
+        let reversed =  reversedNum(stringNumber.substr(1)) + stringNumber.charAt(0);
+        return parseFloat(reversed) * Math.sign(parseInt(stringNumber));
+    }
+}
+let num = -12413340;
+let stringNumber = num.toString();
+console.log(reversedNum(stringNumber));
+
+</script>
+</body>
+</html>

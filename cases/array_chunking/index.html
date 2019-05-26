@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Chunking</title>
+</head>
+<body>
+<script>
+/**
+ * 1. Looping Through the Array
+ * */
+// function chunkArray(array, size) {
+//     let result = [];
+//     for (value of array) { // looping sebanyak jumlah array
+//         let lastArray = result[result.length - 1];
+//         console.log(lastArray);
+//         if (!lastArray || lastArray.length == size)
+//             result.push([value]); // make sub-array
+//         else
+//             lastArray.push(value); // insert value to sub-array already made
+//     }
+//     return result;
+// }
+//
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+// let size = 5;
+// console.log(chunkArray(arr, size));
+
+/**
+ * 2. Looping Through the Number of Chunks Using splice()
+ * The **.splice()** method is used to modify the content of an array by removing or replacing elements.
+ * */
+// function chunkArray(array, size) {
+//     let result = [];
+//     let copyArray = [...array];
+//     while (copyArray.length > 0) {
+//         result.push(copyArray.splice(0, size));
+//     }
+//     return result;
+// }
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+// let size = 5;
+// console.log(chunkArray(arr, size));
+
+/**
+ * 3. Looping Through the Number of Chunks Using slice()
+ * The .slice() method is used to extract a portion of an array starting from
+ * the specified beginning to end without modifying the original array. It returns
+ * a new array containing all elements from the starting index till the end index
+ * without including the item at the end index.
+ * */
+// function chunkArray(array, size) {
+//     let result = [];
+//     for (let i = 0; i < array.length; i += size) {
+//         let chunk = array.slice(i, i + size);
+//         result.push(chunk);
+//     }
+//     return result;
+// }
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+// let size = 5;
+// console.log(chunkArray(arr, size));
+
+/**
+ * 4. Array Chunking Using Recursion
+ * */
+function chunkArray(array, size) {
+    if (array.length <= size)
+        return [array];
+    return [array.slice(0, size), ...chunkArray(array.slice(size), size)];
+}
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+let size = 5;
+console.log(chunkArray(arr, size));
+</script>
+</body>
+</html>

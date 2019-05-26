@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Ending String</title>
+</head>
+<body>
+<script>
+/**
+ * 1. Confirm the Ending of a String With Built-In Functions — with substr()
+ * The substr() method returns the characters in a string beginning at the
+ * specified location through the specified number of characters.
+ * If the target.length is negative, the substr() method will start the counting from the end
+ * of the string, which is what you want in this code challenge.
+ * */
+function confirmEnding(string, target) {
+    if (string.substr(-target.length) === target) {
+        // What does "if (string.substr(-target.length) === target)" represents?
+        // The string is 'Bastian' and the target is 'n'
+        // target.length = 1 so -target.length = -1
+        // if ('Bastian'.substr(-1) === 'n')
+        // if ('n' === 'n')
+        return true;
+    } else
+        return false;
+}
+console.log(confirmEnding('Open Sesame', 'same'));
+
+/**
+ * Approach #2: Confirm the Ending of a String With Built-In Functions — with endsWith()
+ * */
+// function confirmEnding(string, target) {
+//     return string.endsWith(target);
+// }
+// console.log(confirmEnding('Open Sesame', 'same'));
+</script>
+</body>
+</html>

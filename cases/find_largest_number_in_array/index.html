@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Largest Number In Array</title>
+</head>
+<body>
+<script>
+/**
+ * Approach #1: Return the Largest Numbers in a Array With a For Loop
+ * */
+// function largestOfFour(arr) {
+//     let largestNumber = [0, 0, 0, 0];
+//     for (let arrayIndex = 0; arrayIndex < arr.length; arrayIndex++) {
+//         for (let subArrayIndex = 0; subArrayIndex < arr[arrayIndex].length; subArrayIndex++) {
+//             if (arr[arrayIndex][subArrayIndex] > largestNumber[arrayIndex]) {
+//                 largestNumber[arrayIndex] = arr[arrayIndex][subArrayIndex];
+//             }
+//         }
+//     }
+//     return largestNumber;
+// }
+//
+// let arr = [[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]];
+// console.log(largestOfFour(arr));
+
+/**
+ * Approach #2: Return the Largest Numbers in a Array With Built-In Functions — with map() and reduce()
+ * */
+// function largestOfFour(mainArray) {
+//     return mainArray.map(function(subArray) {
+//         return subArray.reduce(function (previousLargestNumber, currentLargestNumber) {
+//             return (currentLargestNumber > previousLargestNumber ? currentLargestNumber : previousLargestNumber);
+//         }, 0)
+//     });
+// }
+// let arr = [[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]];
+// console.log(largestOfFour(arr));
+
+/**
+ * Approach #3: Return the Largest Numbers in a Array With Built-In Functions — with map() and apply()
+ * */
+function largestOfFour(mainArray) {
+    return mainArray.map(function(subArray) {
+        return Math.max.apply(null, subArray);
+    });
+}
+let arr = [[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]];
+console.log(largestOfFour(arr));
+
+// Sumber:
+// https://medium.freecodecamp.org/three-ways-to-return-largest-numbers-in-arrays-in-javascript-5d977baa80a1
+</script>
+</body>
+</html>

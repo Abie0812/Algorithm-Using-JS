@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anagrams</title>
+</head>
+<body>
+<script>
+/**
+ * 1. Direct Comparison
+ * */
+// function isAnagram(stringA, stringB) {
+//     const sanitizeString = function(str) {
+//         return str.toLowerCase().replace(/[^a-z\d]/g, '').split("").sort().join('');
+//     };
+//     return sanitizeString(stringA) === sanitizeString(stringB);
+// }
+//
+// let stringA = "Besok sekolah";
+// let stringB = "Senin Sekolah?";
+// if (isAnagram(stringA, stringB) === true)
+//     console.log(`${stringA} and ${stringB} is anagram`);
+// else
+//     console.log(`${stringA} and ${stringB} is not anagram`);
+
+/**
+ * 2. Character Map Comparison
+ * */
+function sanitizedString(string) {
+    return string.toLowerCase().replace(/[^a-z\d]/g, '');
+}
+
+function createCharMap(string) {
+    let charMap = {};
+    console.log(charMap);
+    for (let char of string) { // make Object from String
+        if (charMap.hasOwnProperty(char))
+            charMap[char]++;
+        else
+            charMap[char] = 1;
+    }
+    return charMap;
+}
+
+function isAnagram(stringA, stringB) {
+    stringA = sanitizedString(stringA);
+    stringB = sanitizedString(stringB);
+    if (stringA.length === stringB.length) {
+        let stringAMap = createCharMap(stringA);
+        let stringBMap = createCharMap(stringB);
+        for (let char in stringAMap) { // looping object
+            if (stringAMap[char] !== stringBMap[char])
+                return false;
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+
+let stringA = "San Diego";
+let stringB = "Diagnose";
+if (isAnagram(stringA, stringB) === true)
+    console.log(`${stringA} & ${stringB} is Anagrams`);
+else
+    console.log(`${stringA} & ${stringB} is not Anagrams`);
+
+/**
+ * Tips!!!
+ * 1. foreach => looping array
+ * 2. for...in => looping object [key dan valuenya], bisa juga looping array dan strings tidak disarankan karena hasilnya tidak terjamin terurut
+ * 3. for...of =>  cocoknya untuk iterable Collections seperti iterasi NodeList (sekelompok element html yang kita select), tidak bisa iterasi Object, tapi bisanya iterasi Arrays dan Strings.
+ */
+</script>
+</body>
+</html>
