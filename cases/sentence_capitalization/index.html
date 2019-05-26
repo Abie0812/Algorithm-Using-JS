@@ -6,8 +6,45 @@
 </head>
 <body>
 <script>
+/**
+ * 1. Title Case a Sentence With a FOR Loop
+ * */
+// function titleCase(str) {
+//     // Step 1. Lowercase the string
+//     str = str.toLowerCase();
+//
+//     // Step 2. Split the string into an array of strings
+//     str = str.split(' ');
+//
+//     // Step 3. Create the FOR loop
+//     for (let i = 0; i < str.length; i++) {
+//         str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+//     }
+//
+//     // Step 4. Return the output
+//     return str.join(' ');
+// }
+// console.log(titleCase("I'm a little tea pot"));
 
+/**
+ * 2. Title Case a Sentence With the map() Method
+ * */
+// function titleCase(str) {
+//     return str.toLowerCase().split(' ').map(function(word) {
+//         return (word.charAt(0).toUpperCase() + word.slice(1));
+//     }).join(' ');
+// }
+// console.log(titleCase("I'm a little tea pot"));
 
+/**
+ * 3. Title Case a Sentence With the map() and the replace() Methods
+ * */
+function titleCase(str) {
+    return str.toLowerCase().split(' ').map(function(word) {
+        return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+}
+console.log(titleCase("I'm a little tea pot"));
 </script>
 <!--Sumber: https://medium.freecodecamp.org/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27-->
 </body>
