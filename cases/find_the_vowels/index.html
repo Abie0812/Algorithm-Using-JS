@@ -6,8 +6,33 @@
 </head>
 <body>
 <script>
+/**
+ * 1. An Iterative Approach
+ * */
+// const VOWELS = ['a', 'i', 'u', 'e', 'o'];
+// function vowelsCounter(text) {
+//     let counter = 0;
+//     for (letter of text.toLowerCase()) {
+//         if (VOWELS.includes(letter)) {
+//             counter++;
+//         }
+//     }
+//     return counter;
+// }
+// console.log(vowelsCounter("ada aku disini"));
 
+/**
+ * 2. Using Regular Expression
+ * */
+function vowelsCounter(text) {
+    let matchingInstances = text.match(/[aiueo]/gi);
+    if (matchingInstances)
+        return matchingInstances.length;
+    else
+        return 0;
+}
+console.log(vowelsCounter("ada aku disini Yeah"));
 </script>
-<!--Sumber: https://dev.to/worldclassdev/javascript-algorithms-1-counting-the-vowels-in-a-string-oftext-5ejl-->
+<!--Sumber: https://scotch.io/courses/the-ultimate-guide-to-javascript-algorithms/counting-the-vowels-in-a-string-of-text-->
 </body>
 </html>
